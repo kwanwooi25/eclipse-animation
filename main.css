@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  transform-origin: center center;
+}
+
+body {
+  font-family: 'Chewy', cursive;
+  background: url('bg.svg');
+  background-size: cover;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#animation-start {
+  font-family: 'Chewy', cursive;
+  font-size: 1.2em;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+  transition: .5s;
+  outline: none;
+}
+
+#animation-start:hover,
+#animation-start:active {
+  cursor: pointer;
+  outline: none;
+  opacity: .8;
+}
+
+
+#sun,
+#moon {
+  position: absolute;
+  top: 20vh;
+  left: 30vw;
+  width: 40vw;
+}
+
+#moon {
+  top: 20vh;
+  left: -50vw;
+}
+
+@keyframes move {
+  0% {
+    top: 40vh;
+    left: -40vw;
+  }
+  100% {
+    top: 0vh;
+    left: 100vw;
+  }
+}
+
+@keyframes opacity-down {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: initial;
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bg-change {
+  47% {
+    background-color: black;
+  }
+  50% {
+    background-color: #3D3D2F;
+  }
+  57% {
+    background-color: black;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0) scale(.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(1);
+  }
+  100% {
+    transform: rotate(720deg) scale(.8);
+  }
+
+}
+
+body {
+  animation: bg-change 20s linear forwards;
+}
+
+#moon {
+  animation: move 20s linear forwards,
+             rotate 20s linear forwards;
+}
+
+.sun-outer {
+  animation: grow 2.5s linear 7.5s forwards,
+             shrink 2.5s linear 10s forwards;
+}
+
+.moon-outer {
+  animation: opacity-down 4s linear 6s,
+             opacity-up 4s linear 10s forwards;
+}
